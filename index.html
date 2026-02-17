@@ -1,0 +1,2318 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>ОКНОК — Оконно-фасадные решения </title>
+    <!-- SEO -->
+    <meta name="description" content="Проектирование, поставка и монтаж оконных и фасадных систем">
+    <meta property="og:type" content="website"> 
+    <meta property="og:url" content="https://oknok.ru/"> 
+    <meta property="og:title" content="ОКНОК — Оконно-фасадные решения"> 
+    <meta property="og:description" content="Проектирование, поставка и монтаж оконных и фасадных систем."> 
+    <meta property="og:image" content="https://i.postimg.cc/ZRVnDjkp/preview.jpg"> 
+    <meta property="og:site_name" content="ОКНОК">
+    
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="ОКНОК — Оконно-фасадные решения">
+    <meta property="twitter:description" content="Инженерный подход к остеклению.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ========================================= */
+        /* 1. ДИЗАЙН-СИСТЕМА                         */
+        /* ========================================= */
+        :root {
+            /* --- ЦВЕТА --- */
+            --c-bg: #f4f3f1;            /* Основной фон ("бумажный") */     
+            --c-text: #2b3749;          /* Основной текст (был ink) */   
+            --c-title: #2e3b4e;         /* Заголовки (был ink-strong) */ 
+            --c-text-muted: #64748B;    /* Второстепенный текст (был --c-ink-light) */
+            --c-line: rgba(0, 0, 0, 0.1); /* Линии и обводки */           
+            --c-text-soft: rgba(46, 59, 78, 0.08); /* Light blue tint for tags */
+            --c-accent: #ac5039;   /* Акцентный цвет (кнопки, ссылки) */                      
+
+            /* --- РАЗМЕРЫ --- */
+            --container-width: 1200px; /* Ширина контента */
+            --header-height: 80px;  /* высота шапки (можно менять, но тогда нужно будет подправить отступы в hero) */
+            --radius: 2px;   
+
+            /* --- ШРИФТЫ --- */
+            --font-main: 'Manrope', sans-serif;
+            --font-tech: 'JetBrains Mono', monospace;
+                                  
+            /* --- РАЗМЕРЫ ШРИФТОВ (FONT SIZES) --- */
+            --fs-h1: clamp(2.5rem, 5vw, 4.5rem);     /* От 40px до 72px */
+            --fs-h2: clamp(1.75rem, 3.2vw, 2.5rem);   /* от 28 до 40 Заголовок блока */
+            --fs-h3: clamp(1.25rem, 1.8vw, 1.5rem); /* От 20px до 24px Заголовок карточек/разделов*/
+            --fs-sub: clamp(1.125rem, 1.6vw, 1.375rem); /* 18–22 Подзаголовок секции/блока (между h3 и body) */
+            --fs-body: 1rem; /* 16 */
+            --fs-label: 0.75rem; /* Размер для технических меток и тегов 0.875 */ 
+
+            /* --- ТИПОГРАФИКА: ПЛОТНОСТЬ --- */
+            /* Line-height (Межстрочный интервал) */
+            --lh-base: 1.5;      /* Для обычного текста (комфортно читать) */
+            --lh-title: 1.1;     /* Для заголовков (чтобы не разлетались) */
+            --lh-sub: 1.3;        /* Средняя межстрочка для подзаголовков */
+
+            /* Letter-spacing (Межбуквенный интервал) */
+            --ls-base: 0;        /* Обычный для текста */
+            --ls-title: -0.02em; /* Для заголовков (солидная плотность) */                
+            --ls-sub: -0.01em;    /* Едва заметное уплотнение */
+            --ls-label: -0.01em;   /* Для тех-подписей /LABEL (стиль чертежа) */   
+
+            /* --- ОТСТУПЫ (SPACING TOKENS) --- */
+            --sp-min: 0.25rem;    /* Минимальный зазор (для очень плотных макетов) */
+            --sp-xs: 0.5rem;   /* 8px  — Мелкие зазоры */
+            --sp-sm: 1rem;     /* 16px — Стандартный шаг */
+            --sp-md: 2rem;     /* 32px — Средний воздух */
+            --sp-lg: 4rem;     /* 64px — Большие зазоры */
+            --sp-xl: 8rem;     /* 128px — Расстояние между секциями */
+        }
+
+            /* Сброс базовых настроек браузера */
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+        }
+        
+        body {
+            font-family: var(--font-main);
+            background-color: var(--c-bg);
+            color: var(--c-text);        
+            line-height: var(--lh-base);
+            letter-spacing: var(--ls-base);
+            overflow-x: hidden; /* Чтобы горизонтально не скроллилось */
+        }
+
+       /* Плавный скролл для якорных ссылок */
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 100px; /* Чтобы шапка не закрывала заголовки при скролле */
+    }
+
+        /* ФОН В КЛЕТКУ (МИЛЛИМЕТРОВКА) */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            /* Рисуем сетку градиентами */
+            background-image: 
+                linear-gradient(var(--c-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--c-line) 1px, transparent 1px);
+            /* background-size: 40px 40px; Размер клетки */
+            background-size: clamp(20px, 8vw, 100px) clamp(20px, 8vw, 100px);
+            opacity: 0.4; /* Прозрачность сетки */
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* --- ТИПОГРАФИКА --- */       
+        /* Группируем h1 и h2, так как у них общие настройки плотности (Title) */
+        h1, h2 {
+            font-weight: 600;
+            color: var(--c-title); 
+            line-height: var(--lh-title);
+            letter-spacing: var(--ls-title);
+        }
+        
+        /* Настраиваем h3 отдельно (Sub) */
+        h3 {
+            font-size: var(--fs-h3);
+            font-weight: 600;
+            color: var(--c-text);
+            line-height: var(--lh-sub);
+            letter-spacing: var(--ls-sub);
+        }
+
+        /* Крупный заголовок (используем clamp, чтобы сам уменьшался на телефоне) */
+        h1 {
+            font-size: var(--fs-h1); 
+            margin-bottom: var(--sp-md); /* Отступ снизу для заголовков */
+        }
+        
+        /* Заголовок секций-блоков */
+        h2 {
+            font-size: var(--fs-h2);
+            margin-bottom: var(--sp-md); /* Отступ снизу для заголовков */
+        }
+       
+        /* Технический тег (например: /О КОМПАНИИ) */
+        .label {
+            font-family: var(--font-tech);
+            font-size: var(--fs-label);
+            letter-spacing: var(--ls-label);
+            text-transform: uppercase;
+            color: var(--c-accent);
+            display: block; 
+            margin: 0; /* важно: обнуляем */      
+        }
+
+        /* Стандартный контейнер (ограничивает ширину) */
+        .container {
+            width: 90%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        /* Секции (отступы сверху и снизу) */
+        .section {
+            padding: var(--sp-lg) 0;
+        }
+
+        /* ========================================= */
+        /* 2. ШАПКА (HEADER)                         */
+        /* ========================================= */
+        .header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            z-index: 1000;
+            
+            /* Эффект матового стекла */
+            background: rgba(233, 233, 233, 0.3);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--c-line);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+            color: var(--c-title);
+        }
+
+        /* Меню для компьютеров */
+        .nav-desktop {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-desktop a {
+            text-decoration: none;
+            color: var(--c-text);
+            font-size: var(--fs-body); /* пункты меню */
+            font-weight: 400;
+            position: relative;
+        }
+
+        /* Подчеркивание при наведении */
+        .nav-desktop a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0; width: 0; height: 1px;
+            background: var(--c-accent);
+            transition: width 0.3s;
+        }
+        .nav-desktop a:hover::after { width: 100%; }
+
+        /* Кнопка в шапке 
+        .btn-header {
+            padding: 0.6rem 1.2rem;
+            background: var(--c-title);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--radius);
+            font-size: var(--fs-body);
+            transition: opacity 0.3s;
+        }
+        .btn-header:hover { opacity: 0.8; } */
+
+        /* ГАМБУРГЕР (для мобильных)
+           Скрыт на ПК, появится на телефонах
+        */
+        .burger { 
+            display: none; /* <--- ВАЖНО: Скрыт на компьютере */
+            cursor: pointer; 
+            border: none; 
+            background: none; 
+            flex-direction: column; 
+            gap: 6px; /* 6px между полосками */
+            /* Добавляем эти две строчки для безопасности */
+            position: relative; 
+            z-index: 1001;
+        }
+
+        .burger span { 
+            display: block; 
+            width: 24px; 
+            height: 2px; 
+            background: var(--c-title); 
+            transition: 0.3s; 
+        }
+
+        /* Мобильное меню (по умолчанию скрыто) */
+        .mobile-menu {
+            position: fixed;
+            top: var(--header-height);
+            left: 0; width: 100%; height: 0;
+            background: var(--c-bg);
+            overflow: hidden;
+            transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            z-index: 999;
+        }
+        .mobile-menu.open { 
+            height: calc(100vh - var(--header-height)); 
+        }
+        .mobile-menu a { 
+            font-size: var(--fs-body); 
+            text-decoration: none; 
+            color: var(--c-title); 
+        }
+
+        /* Запрет прокрутки страницы, когда меню открыто */
+        body.menu-open { overflow: hidden; }
+
+        /* Анимация бургера в крестик */
+        .burger.is-open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .burger.is-open span:nth-child(2) { opacity: 0; }
+        .burger.is-open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+
+        /* ========================================= */
+        /* 3. ГЛАВНЫЙ ЭКРАН (HERO)                   */
+        /* ========================================= */
+        
+.hero-new {
+    padding-top: calc(var(--header-height) + var(--sp-md));
+    padding-bottom: var(--sp-lg);
+    margin-top: 0;              /* важно: вместо margin-top */
+    position: relative;
+    display: block;             /* убираем flex-центрирование */
+}
+
+/* Сетку тоже делаем гибкой */
+.hero-grid {
+    display: grid;
+    gap: var(--sp-min); /* Расстояние между колонками */
+    align-items: stretch;
+    width: 100%;
+}
+
+/* было 768px, но мы хотим, чтобы на планшете тоже была сетка, поэтому уменьшаем до 992px */
+@media (min-width: 992px) {
+    .hero-grid {
+        /* grid-template-columns: 1.05fr 0.95fr; */
+        grid-template-columns: 1.2fr 0.8fr;
+    }
+}
+
+/* Панель с текстом */
+.hero-text-panel {
+    position: relative;
+    padding: 2rem;
+    background: rgba(233, 233, 233, 0.5);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--c-line);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Декоративная линия (Градиент) */
+.decorative-line {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 2px;
+    /* background: #2e3b4e; */
+    background: linear-gradient(to bottom, #ac5039, #2e3b4e);
+    opacity: 0.8;
+}
+
+.hero-tag {
+    font-family: var(--font-tech);
+    font-size: var(--fs-label);
+    letter-spacing: var(--ls-label);
+    text-transform: uppercase;
+    color: var(--c-accent);
+    margin-bottom: var(--sp-md);
+}
+
+/* Заголовок в герое */
+.hero-title {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    margin-bottom: var(--sp-md); /* Отступ снизу для заголовков */
+    max-width: 24ch;
+    letter-spacing: -0.04em;
+}
+
+.hero-lead {
+    font-size: var(--fs-h3);
+    letter-spacing: var(--ls-sub);
+    line-height: var(--lh-sub);
+    color: var(--c-text-muted);
+    margin-bottom: var(--sp-lg);
+    max-width: 60ch;
+}
+
+/* .hero-text-panel,
+.hero-image-panel {
+    height: 100%;
+} */
+
+/* КНОПКИ */
+/* 2 вариант. НАСТРОЙКА КНОПКИ И ДЕВИЗА - девиз всегда под кнопкой */
+.hero-btns {
+    display: flex;
+    flex-direction: column;   /* Чтобы девиз всегда был ПОД кнопкой */
+    align-items: flex-start;   /* Выравниваем всё по левому краю */   
+    gap: var(--sp-md);  /* Расстояние между кнопкой и девизом из нашей системы */
+}
+
+/* 1. БАЗА ДЛЯ ВСЕХ КНОПОК */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-main);
+    font-weight: 300;
+    font-size: var(--fs-body); /* Стандартный размер */
+    letter-spacing: var(--ls-base);
+    text-decoration: none;
+    
+    padding: 0.8rem 1.8rem;
+    border-radius: var(--radius);
+    
+    position: relative;
+    overflow: hidden; /* Чтобы шторка не вылетала за края */
+    z-index: 1;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+/* 2. ЛОГИКА ШТОРКИ (общая для всех) */
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 100%; /* Прячется внизу */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transition: top 0.3s ease-out;
+}
+
+.btn:hover::after {
+    top: 0; /* Выплывает при наведении */
+}
+
+/* ТЕМНАЯ (Primary) */
+.btn-primary {
+    background-color: var(--c-title);
+    color: white;
+    border: 1px solid var(--c-title);
+}
+.btn-primary::after { background-color: var(--c-bg); }
+.btn-primary:hover { color: var(--c-title); }
+
+/* ВТОРИЧНАЯ (Secondary) */
+.btn-secondary {
+    background: rgba(255,255,255,0.6);
+    color: var(--c-text);
+    border: 1px solid var(--c-line);
+}
+.btn-secondary::after { background-color: var(--c-title); }
+.btn-secondary:hover { color: white; }
+
+/* МАЛЕНЬКАЯ КНОПКА (Для шапки) */
+.btn-sm {
+    padding: 0.5rem 1.5rem;   /* Меньше отступы */
+    font-size: var(--fs-body); /* Меньше шрифт (наш 0.75rem) */
+    letter-spacing: var(--ls-base);
+}
+
+/* 1. По умолчанию скрываем кнопку (для мобильных) */
+.header-cta {
+    display: none !important;
+}
+
+/* 2. Показываем только на больших экранах (от 900px и шире) */
+@media (min-width: 900px) {
+    .header-cta {
+        display: inline-flex !important;
+    }
+}
+/* 
+.btn-primary {
+    padding: 0.8rem 1.5rem;
+    background: var(--c-title);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--radius);
+    transition: 0.3s;
+}
+
+.btn-secondary {
+    padding: 0.8rem 1.5rem;
+    background: rgba(255,255,255,0.6);
+    color: var(--c-text);
+    text-decoration: none;
+    border: 1px solid var(--c-line);
+    border-radius: var(--radius);
+    transition: 0.3s;
+}  */
+
+.hero-motto {
+    font-family: var(--font-tech);
+    font-size: var(--fs-label);
+    letter-spacing: var(--ls-label);
+    text-transform: uppercase;
+    color: var(--c-accent);
+}
+
+/* ПАНЕЛЬ С КАРТИНКОЙ */
+.hero-image-panel {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius);
+    border: 1px solid var(--c-line);
+    min-height: 400px; 
+    display: block;
+}
+
+@media (max-width: 900px) {
+.hero-image-panel { 
+    min-height: 420px; 
+    height: auto; 
+    }
+}
+
+@media (max-width: 560px) {
+  .hero-image-panel {
+    max-height: 380px; /* попробуй 280–340 */ /* Ограничиваем максимальную высоту на телефоне */
+  }
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Чтобы фото не сплющивалось */
+    transition: transform 0.6s ease;
+    display: block;
+}
+
+.hero-image-panel:hover .hero-img {
+    transform: scale(1.05); /* Эффект приближения при наведении */
+}
+
+/* Оверлеи (Затемнения) */
+.img-overlay-top, .img-overlay-bottom {
+    position: absolute;
+    left: 0; right: 0;
+    height: 30%;
+    z-index: 1;
+    pointer-events: none;
+}
+.img-overlay-top { top: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.1), transparent); }
+.img-overlay-bottom { bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.2), transparent); }
+
+/*  Подпись на фото 
+.hero-caption {
+    position: absolute;
+    left: 1rem; bottom: 1rem;
+    z-index: 2;
+    padding: 0.5rem 1rem;
+    background: rgba(46, 59, 78, 0.6);
+    backdrop-filter: blur(10px);
+    color: white;
+    font-family: var(--font-tech);
+    font-size: 0.7rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    text-transform: uppercase;
+} */
+
+    /* Заголовок блока-секции */
+    .section-head { 
+        max-width: 40rem; /* Ограничиваем ширину, чтобы текст не был слишком растянутым */
+        margin-bottom: var(--sp-lg); /* расстояние до контента секции было md*/
+    }
+    /* Тег над заголовком блока-секции */
+    .section-head .label {
+        margin-bottom: var(--sp-md); /* расстояние от тега до заголовка было md */
+    }
+    /* Заголовок блока-секции */
+    .section-head h2 {
+        margin: 0; /* чтобы управляла система, а не дефолт браузера */
+    }
+
+    /* Подзаголовок блока-секции */
+    .section-subtitle {
+        max-width: 36rem;
+        font-size: var(--fs-sub); 
+        line-height: var(--lh-sub);  
+        letter-spacing: var(--ls-sub);
+        color: var(--c-text-muted);
+        margin-top: var(--sp-md); 
+    }
+
+    @media (max-width: 900px) {
+        .section-subtitle { max-width: 30rem; }
+    } 
+
+        /* =========================================   */
+        /* 4. ДЛЯ КОГО (AUDIENCE - аудитория) */
+        /* =========================================   */        
+
+        /* Тег над заголовком - вроде лишнее 
+        .audience-subtitle {
+        color: var(--c-text-muted);
+        line-height: var(--lh-sub); 
+        margin-top: var(--sp-sm);
+        } */
+
+    .audience-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        /* border-top: 1px solid var(--c-line); */
+        /* border-right: 1px solid var(--c-line); */
+        gap: var(--sp-min); /* отладка нужна */
+        }
+
+    .audience-card {
+        /* padding: var(--sp-md); */
+        padding: var(--sp-sm) var(--sp-md) var(--sp-md); /* сверху и по бокам md, снизу lg */
+        /* border-right: 1px solid var(--c-line); */
+        /* border-bottom: 1px solid var(--c-line); */
+        border: 1px solid var(--c-line);
+        display: flex;
+        flex-direction: column;
+        background: transparent;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 0;
+        }
+
+        /* Отступ между тегом и заголовком внутри карточки */
+    .audience-card .label {
+        margin-bottom: var(--sp-md);
+    }
+
+    .audience-card:hover {
+        background: rgba(0, 0, 0, 0.02);
+        }
+
+    .audience-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        height: 0%;
+        background: var(--c-title);
+        opacity: 0.02;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: -1;
+        }
+
+    .audience-card:hover::before {
+        height: 100%;
+        }
+    /* Заголовок раздела/карточки */
+    .audience-title {
+        font-size: var(--fs-h3); 
+        line-height: var(--lh-title); 
+        letter-spacing: var(--ls-title);
+        margin-bottom: var(--sp-sm); 
+        color: var(--c-title);
+        }
+        
+    /* Узкий десктоп: иногда заголовок становится 3 строки */
+    @media (min-width: 901px) and (max-width: 1100px) {
+        .audience-title { min-height: calc(1.2em * 3); }
+        }
+
+        /* Нормальный десктоп: обычно 2 строки */
+    @media (min-width: 1101px) {
+        .audience-title { min-height: calc(1.2em * 2); }
+        }
+
+    /* Субтитул/описание раздела/карточки */
+    .audience-features {
+        list-style: none;
+        padding: 0;
+        margin: 0; /* важно: без лишнего расстояния сверху */
+        /* margin-top: var(--sp-sm); */
+        }
+
+    /* Текст пунктов списка */
+    .audience-feature {
+        position: relative;
+        padding-left: 24px;
+        font-size: var(--fs-body);
+        line-height: var(--lh-base);
+        margin-bottom: var(--sp-sm);
+        color: var(--c-text);
+        /* opacity: 0.9; */
+        }
+        
+        /* Декоративный ромб перед каждым пунктом */
+    .audience-feature::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 8px;
+        width: 6px;
+        height: 6px;
+        background: var(--c-accent);
+        border-radius: 0;
+        transform: rotate(45deg);
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+    .audience-card:hover .audience-feature::before {
+        transform: rotate(135deg);
+        }
+
+        /* Координаты для ориентира (можно удалить, если не нужно) */
+    .audience-coord {
+        position: absolute;
+        font-family: var(--font-tech);
+        font-size: 10px; /* Размер для координат */ 
+        opacity: 0.3;
+        pointer-events: none;
+        }
+
+        /* Пример координат в правом верхнем углу и левом нижнем углу */
+        .audience-coord--tr { top: 10px; right: 10px; }
+        .audience-coord--bl { bottom: 10px; left: 10px; }
+
+        /* Адаптив под твою систему (900px) */
+        @media (max-width: 900px) {
+    .audience-grid {
+        grid-template-columns: 1fr;
+        /* border-right: 1px solid var(--c-line); */
+    }
+    .audience-card {
+        padding: var(--sp-md);
+        }
+    }
+
+    /* ========================================= */
+    /* 5. НАШ ПОДХОД (APPROACH)               */
+    /* ========================================= */
+            .approach-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            grid-template-areas: "left list";
+            gap: var(--sp-lg);
+            align-items: start;
+            }
+
+            .approach-left { 
+            grid-area: left; 
+            display: flex;
+            flex-direction: column;
+            gap: var(--sp-sm);
+            }
+
+            .approach-list { 
+            grid-area: list; 
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            }
+            
+    @media (min-width: 901px) {
+        .approach-list {
+            margin-top: var(--sp-lg);
+            }
+        }
+
+        /* Липкая левая колонка — только на десктопе */
+    @media (min-width: 901px) {
+        .approach-left {
+            position: sticky;
+            top: calc(var(--header-height) + var(--sp-md));
+            align-self: start;
+            }
+        }
+
+        .approach-item {
+            position: relative;
+            padding: var(--sp-sm) 0;
+            border-top: 1px solid var(--c-line);
+            display: flex;
+            gap: var(--sp-md);
+            align-items: flex-start;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+
+        .approach-item:last-child {
+            border-bottom: 1px solid var(--c-line);
+            }
+
+            /* лёгкая подсветка при hover */
+        .approach-item::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.6);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: -1;
+            }
+
+        .approach-item:hover::before {
+            opacity: 1;
+            }
+
+        .approach-marker {
+            font-family: var(--font-tech);
+            font-size: var(--fs-label);
+            letter-spacing: var(--ls-label);
+            color: var(--c-accent);
+            white-space: nowrap;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            }
+
+        .approach-item:hover .approach-marker {
+            transform: translateX(4px);
+            }
+
+        .approach-text {
+            margin: 0;
+            font-size: var(--fs-body);
+            line-height: var(--lh-base);
+            letter-spacing: var(--ls-base);
+            max-width: 46rem;
+        }
+
+    /* Мобилка: порядок head -> list -> cta (кнопка в самом конце) */
+        @media (max-width: 900px) {
+        .approach-grid {
+            grid-template-columns: 1fr;
+            grid-template-areas:
+            "left"
+            "list";
+            gap: var(--sp-sm);
+        }
+        .approach-head.section-head {
+            margin-bottom: var(--sp-sm);
+        }
+
+        /* "Растворяем" левую обёртку, чтобы CTA оказалась после списка */
+        .approach-left { display: contents; }
+
+        /* order работает, когда элементы в одном flex/grid-контексте; display: contents оставляет их "как дети" грида */
+        .approach-cta { margin-top: 0; }
+        }
+
+        /* ========================================= */
+        /* 6. КЛЮЧЕВЫЕ НАПРАВЛЕНИЯ (DIRECTIONS GRID) */
+        /* ========================================= */
+
+        .directions-grid {
+            display: grid;
+            /* width: 100%; */
+            grid-template-columns: repeat(2, 1fr); /* ПК: 2 в ряд */
+            gap: var(--sp-min); /* микро-отступ между карточками, можно 0.25rem мини-отступ между карточками */
+            /* border: 0;                важно */
+            /* background: transparent;  важно */
+        }
+
+        /* мобильная версия: 1 в ряд */
+        @media (max-width: 560px) {
+        .directions-grid {
+            grid-template-columns: 1fr; /* мобилка: 1 в ряд */
+            }
+        }
+
+        .direction-card {
+            position: relative;
+            border: 1px solid var(--c-line);
+            background: transparent;
+            aspect-ratio: 4 / 3; /* заменили минимальную высоту на фиксированное соотношение сторон, чтобы карточки были одинаковой формы и не зависели от контента внутри */
+            /* min-height: 320px; страховка, можно 300–340 */
+            padding: var(--sp-md);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            overflow: hidden;
+            cursor: pointer;
+            outline: none;
+            min-width: 0;
+            }
+
+        /* На узком десктопе иногда карточки становятся слишком узкими, поэтому добавляем минимальную высоту, чтобы они не сжимались слишком сильно */
+        @media (min-width: 901px) {
+        .direction-card { 
+            min-height: 300px; 
+            }
+        }
+
+        /* Планшет и мобилка*/
+        @media (max-width: 900px) {
+         .direction-card {
+            min-height: 0; /* убираем минимальную высоту, чтобы карточки могли адаптироваться по высоте в зависимости от контента */
+            aspect-ratio: 3 / 4; 
+            padding: var(--sp-md); /* отступы, чтобы контент не прилипал к краям */
+        }
+        }
+
+        /* фон-картинка */
+            .direction-media {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background: var(--c-bg);
+        }
+
+        .direction-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+        /* “как в Tailwind”: серость + контраст + прозрачность + плавный переход */
+            filter: grayscale(1) contrast(1.25);
+            opacity: 0.15;
+            transform: scale(1);
+            transition: filter 0.7s ease, opacity 0.7s ease, transform 0.7s ease;
+            }
+
+        /* контент поверх фото */
+        .direction-content {
+            position: relative;
+            z-index: 1;
+            transform: translateY(0);
+            transition: transform 0.5s ease;
+            }
+
+        .direction-content .label {
+            margin-bottom: var(--sp-md); /* мини-отступ до h3 внутри карточки */
+            }
+
+        /* #directions .section-subtitle { max-width: 40rem; } ширина подзаголовка только в этом блоке */
+
+        .direction-title {
+            margin: 0 0 var(--sp-sm);
+            font-size: var(--fs-h3);
+            line-height: var(--lh-title);
+            letter-spacing: var(--ls-title);
+            color: var(--c-title);
+            }
+
+        .direction-desc {
+            margin: 0;
+            font-size: var(--fs-body);
+            line-height: var(--lh-base);
+            letter-spacing: var(--ls-base);
+            color: var(--c-text-muted);
+            max-width: 28rem;
+            }
+
+    @media (max-width: 900px) {
+        .direction-desc { max-width: none; }
+        }
+
+        /* “волшебная” анимация hover/focus (как group-hover) */
+        .direction-card:hover .direction-media img,
+        .direction-card:focus-visible .direction-media img {
+            filter: grayscale(0) contrast(1);
+            opacity: 1;
+            transform: scale(1.05);
+            }
+
+        .direction-card:hover .direction-content,
+        .direction-card:focus-visible .direction-content {
+            transform: translateY(-8px);
+            }
+
+        /* лёгкий эффект клика */
+        .direction-card:active .direction-content {
+            transform: translateY(-4px);
+            }
+
+        /* фокус для клавиатуры (красиво и доступно) */
+        .direction-card:focus-visible {
+            box-shadow: 0 0 0 2px rgba(172, 80, 57, 0.35);
+            }            
+
+        /* ========================================= */
+        /* 7. Блок ПОД КЛЮЧ  АККОРДЕОН               */
+        /* ========================================= */
+        .turnkey-grid {
+            display: grid;
+            /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); было такое значение в оригинале*/
+            grid-template-columns: 1fr; /* По умолчанию (для мобилок) делаем 1 колонку */
+            gap: var(--sp-min);
+            /* margin-top: var(--sp-lg); было 3rem, теперь больше, чтобы отойти от заголовка секции */
+        }
+
+        /* Для экранов больше 560px (планшеты и ПК) включаем 2 колонки */
+        @media (min-width: 561px) {
+            .turnkey-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* Карточки-аккордеоны */
+        .turnkey .card {
+            padding: var(--sp-md); /* было 2rem, теперь меньше, чтобы карточки были компактнее и не так сильно растягивались по высоте */
+            background: rgba(255,255,255, 0.4);
+            backdrop-filter: blur(4px);
+            border: 1px solid var(--c-line);
+            cursor: pointer;
+            position: relative;
+            transition: background 0.2s, transform 0.2s;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            min-height: 280px;
+        }
+
+        /* Эффект при наведении и для активной карточки */
+        .turnkey .card:hover, .turnkey .card.active { 
+            background: rgba(244 243 241 / 0.65); /* современный стандарт обозначения цвета без запятых и со слэшем */
+            transform: translateY(-2px);
+            border-color: var(--c-text-muted); /* Добавил для акцента */
+        }
+        
+        /* Diagonal Arrow */
+        .turnkey .card::before {
+            content: '↘';
+            position: absolute;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            font-size: 1.5rem; 
+            font-family: var(--font-main);
+            color: var(--c-text-muted);
+            opacity: 0.6;
+            transition: transform 0.3s, color 0.3s, opacity 0.3s;
+        }
+
+        /* При наведении и для активной карточки: стрелка становится ярче и немного смещается, создавая эффект движения */
+        .turnkey .card:hover::before, .turnkey .card.active::before {
+            color: var(--c-text);
+            opacity: 1;
+            transform: translate(3px, 3px);
+        }
+        /* Заголовок внутри карточки */
+        .turnkey .card__title { 
+            margin-bottom: var(--sp-sm); 
+            transition: color 0.2s; 
+        }
+
+        /* При наведении на карточку или если она активна, заголовок становится цветом заголовков сайта для лучшего контраста и акцента */
+        .turnkey .card:hover .card__title, 
+        .turnkey .card.active .card__title { 
+            color: var(--c-title); 
+        }
+
+        /* Описание внутри карточки */
+        .turnkey .card__desc { 
+            color: var(--c-text-muted); 
+            margin-bottom: var(--sp-sm); 
+            font-size: var(--fs-body); 
+        }
+
+        /* Скрытый блок с деталями, который раскрывается при активации карточки */
+        .turnkey .card__details {
+            max-height: 0; 
+            opacity: 0; 
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+            font-size: var(--fs-body); 
+            color: var(--c-text);
+            border-top: 1px solid transparent; 
+            margin-top: 0; 
+            padding-top: 0;
+        }
+        
+        /* Когда карточка активна, раскрываем блок с деталями */
+        .turnkey .card.active .card__details {
+            max-height: 999px; /* было 300px, теперь больше, чтобы гарантированно вместить весь текст */
+            opacity: 1;
+            border-top-color: var(--c-line); 
+            margin-top: var(--sp-md); /* было 1.5rem, теперь больше, чтобы отделить детали от основного описания */
+            padding-top: var(--sp-sm); /* было 1rem, теперь меньше, чтобы детали были ближе к описанию, но всё равно отделены */
+        }
+        
+        /* Тег (например /ИНЖЕНЕРИЯ_01) */
+        .turnkey .tech-tag {
+            display: inline-block;
+            font-family: var(--font-tech);
+            font-size: var(--fs-label);
+            letter-spacing: var(--ls-label);
+            border: 1px solid var(--c-line);
+            background: var(--c-text-soft);
+            padding: 4px 8px;
+            border-radius: var(--radius);
+            margin-bottom: var(--sp-md);
+            transition: 0.3s;  /* 0.2s ease-out; как в оригинале */
+            text-transform: uppercase;
+        }
+        
+        /* При наведении на карточку или если она активна, тег меняет цвет фона и текста для лучшего контраста и акцента */
+        .turnkey .card:hover .tech-tag,
+        .turnkey .card.active .tech-tag { 
+            background: var(--c-text); 
+            color: white; 
+            border-color: var(--c-text); 
+        }
+        
+/* ========================================= */
+/* 9. PROCESS — Как мы работаем                 */
+/* ========================================= */
+
+.process-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-min); /* линии дают ритм, а не gap */
+}
+
+/* Десктоп: 2 колонки, “змейка” как в оригинале (1-3 слева, 4-6 справа) */
+@media (min-width: 901px) {
+  .process-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, auto);
+    grid-auto-flow: column;
+    column-gap: var(--sp-xl);
+  }
+}
+
+.process-item {
+  position: relative;
+  padding: var(--sp-md) 0 var(--sp-md) calc(var(--sp-md) + var(--sp-xs));
+  border-bottom: 1px solid var(--c-line);
+}
+
+/* Анимация появления — на нашей системе reveal */
+.process-item.reveal {
+  opacity: 0;
+  transform: translateY(var(--sp-xs));
+  transition:
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    padding-left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.process-item.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Вертикальная линия слева (акцент) */
+.process-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 0;
+  width: 1px;
+  background: var(--c-accent);
+  transition: height 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.process-item.reveal.active::before {
+  height: 100%;
+} 
+/* второй вариант анимации линии — с помощью transform, чтобы не было “растягивания” и она появлялась более “волшебно” */
+/* .process-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: var(--sp-sm);
+  bottom: var(--sp-sm);
+  width: 1px;
+  background: var(--c-accent);
+  opacity: 0.35;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.process-item.reveal.active::before {
+  transform: scaleY(1);
+}  */
+
+
+/* Hover-микродвижение только на устройствах с мышью */
+@media (hover: hover) and (pointer: fine) {
+  /*.process-item {
+    transition: padding-left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }*/ /* уже добавлено в .process-item.reveal для синхронизации с анимацией появления */
+  .process-item:hover {
+    padding-left: calc(var(--sp-md) + var(--sp-sm));
+  }
+}
+
+.process-tag {
+  display: block;
+  font-family: var(--font-tech);
+  font-size: var(--fs-label);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-text-muted);
+  /* opacity: 0.8; */
+  margin-bottom: var(--sp-md);
+}
+
+.process-header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-sm);
+  margin-bottom: var(--sp-sm);
+}
+
+.process-number {
+  font-family: var(--font-tech);
+  font-weight: 500;
+  font-size: var(--fs-h3);
+  line-height: var(--lh-title);
+  color: var(--c-accent);
+}
+
+.process-title {
+  margin: 0;
+  font-size: var(--fs-h3);
+  line-height: var(--lh-title);
+  letter-spacing: var(--ls-title);
+  color: var(--c-title);
+}
+
+.process-description {
+  margin: 0;
+  font-size: var(--fs-body);
+  line-height: var(--lh-base);
+  letter-spacing: var(--ls-base);
+  color: var(--c-text);
+  opacity: 0.9;
+  max-width: 52ch; /* это ок оставлять как “типографический” лимит */
+}
+
+/* Мобилка — комфортные отступы */
+@media (max-width: 900px) {
+  .process-item {
+    padding: var(--sp-md) 0 var(--sp-md) var(--sp-sm);
+  }
+  .process-description {
+    max-width: 60ch;
+  }
+}
+
+/* Статус в конце процесса */
+.process-status {
+    font-family: var(--font-tech); 
+    color: var(--c-accent); /* Акцентный терракотовый */
+    font-size: var(--fs-label);
+    text-transform: uppercase;
+    letter-spacing: var(--ls-label);
+    margin-top: 3rem; /* Отступ от последнего этапа */
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1); /* Тонкая линия над текстом */
+    opacity: 0.8;
+    text-align: left; /* Как мы и договаривались */
+  }
+
+    /* ========================================= */
+    /* 8 PARTNERS — Партнёры / База и доверие      */
+    /* ========================================= */
+.partners-top {
+    margin-top: var(--sp-md);
+}
+
+.partners-bullets {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--sp-md);
+    max-width: 52rem;
+}
+
+/* Планшет/десктоп: 2 колонки буллетов */
+@media (min-width: 901px) {
+.partners-bullets {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: var(--sp-md);
+    row-gap: var(--sp-md);
+  }
+}
+
+.partners-bullet {
+    position: relative;
+    padding: var(--sp-sm) 0 var(--sp-sm) calc(var(--sp-md) + var(--sp-xs));
+    /* padding-left: var(--sp-sm);*/
+    border-left: 1px solid var(--c-line); 
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+.partners-bullet:hover {
+    transform: translateX(var(--sp-xs));
+    border-left-color: var(--c-accent);
+  }
+}
+
+.partners-bullet-num {
+    display: block;
+    font-family: var(--font-tech);
+    font-size: var(--fs-label);
+    letter-spacing: var(--ls-label);
+    text-transform: uppercase;
+    color: var(--c-text-muted);
+    /* opacity: 0.7; */
+    margin-bottom: var(--sp-sm);
+}
+
+.partners-bullet-text {
+    margin: 0;
+    font-size: var(--fs-body);
+    line-height: var(--lh-base);
+    letter-spacing: var(--ls-base);
+    color: var(--c-text);
+    opacity: 0.95;
+    /* max-width: 32ch; */
+}
+
+.partners-divider {
+    height: 1px;
+    background: var(--c-line);
+    width: 100%;
+    margin: var(--sp-lg) 0 var(--sp-md);
+    position: relative;
+}
+
+.partners-divider::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -2px;
+    width: 6px;
+    height: 6px;
+    background: var(--c-accent);
+    transform: rotate(45deg);
+}
+
+/* MARQUEE */
+.partners-marquee {
+    width: 100%;
+    overflow: hidden;
+    padding: var(--sp-sm) 0;
+    /* мягкое “затухание” по краям */
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    /* background: rgba(255,255,255,0.4); */
+}
+
+.partners-marquee-track {
+    display: flex;
+    width: max-content; /* ширина по содержимому, чтобы не было лишнего пространства */
+    align-items: center;
+    gap: var(--sp-sm);
+    animation: partners-scroll 28s linear infinite;
+}
+
+.partners-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    padding: 0 var(--sp-lg);
+    font-family: var(--font-tech);
+    font-size: calc(var(--fs-h2) + 0.25rem);
+    letter-spacing: var(--ls-sub);
+    text-transform: uppercase;
+    color: var(--c-title);
+    opacity: 0.25;
+    user-select: none;
+    cursor: default;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .partners-logo:hover {
+        opacity: 1;
+        transform: scale(1.05);
+        }
+    }
+
+@keyframes partners-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+    }
+
+    /* На маленьких — чуть компактнее логотипы */
+@media (max-width: 560px) {
+    .partners-logo {
+        padding: 0 var(--sp-md);
+        height: 36px;
+        font-size: calc(var(--fs-h3) + 0.25rem);
+        }
+    }
+
+    /* Доступность: если пользователь просит меньше анимаций */
+@media (prefers-reduced-motion: reduce) {
+    .partners-marquee-track { animation: none; }
+    }
+
+    /* ========================================= */
+    /*   9. FOOTER — full-bleed, как в рефе      */
+    /* ========================================= */
+
+    .footer{
+        position: relative;
+        background: var(--c-title);    /* синий */
+        color: var(--c-bg);            /* светлый текст */
+        overflow: hidden;
+        font-weight: 300;
+        /* padding-top: 80px; */ 
+    /* min-height: 600px; */
+    }
+
+    /* делаем футер НЕ в "коробке 90%", а на всю ширину */
+    .footer .container{
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding: 0 5%;                 /* как в шапке, аккуратно */
+    }
+
+    .footer a{ color: inherit; }
+
+    /* Дефолтный цвет текста у светлой кнопки (перебиваем .footer a { color: inherit }) */
+    .footer a.btn.btn-footer-light{
+        color: var(--c-title);
+    }
+
+
+    /* Фикс: футерные кнопки НЕ должны наследовать цвет текста футера 
+    .footer a.btn.btn-footer-light { color: var(--c-title); } */
+    .footer a.btn.btn-footer-accent { color: var(--c-bg); } 
+
+    /* ВАЖНО: не красим ВСЕ p подряд, иначе убьём заголовки колонок */
+    .footer p:not(.footer-col-title){
+        color: rgba(255,255,255,.88);
+    }
+  
+        /* Внутри футера переопределяем цвета заголовков/текста */
+    .footer h1,
+    .footer h2,
+    .footer h3{
+        color: var(--c-bg);
+        }
+
+        /* 3 равные колонки */
+    .footer-grid{
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+        }
+
+        /* линии только МЕЖДУ колонками */
+    .footer-col{
+        padding: var(--sp-lg) var(--sp-lg);
+        min-width: 0;
+    }
+
+    @media (min-width: 901px){
+  .footer-col:first-child{
+    padding-left: 0; /* левый край как у логотипа в шапке */
+  }
+}
+
+        @media (min-width: 901px){
+    .footer-col + .footer-col{
+        border-left: 1px solid rgba(255,255,255,.18);
+        }
+    }
+
+    /* .footer-col--main{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    } */
+
+    .footer-col--main{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* чтобы описание не улетало в центр */
+  /* gap: var(--sp-md);            нормальный “воздух” между лого и текстом */
+}
+
+    /* бренд */
+    .footer-brand{
+        margin: 0 0 var(--sp-sm);
+        font-size: clamp(2.6rem, 1.6vw, 3rem);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1;
+    }
+    .footer-brand a{
+        display: inline-block;
+        text-decoration: none;         /* убираем дефолт */
+        color: var(--c-bg);
+    }
+@media (hover:hover) and (pointer:fine){
+    .footer-brand a:hover{
+        opacity: .85;
+        }
+    }
+
+    /* описание под ЛОГО */
+    .footer-title{
+        margin: 0;
+        font-size: var(--fs-body);
+        line-height: var(--lh-base);
+        letter-spacing: var(--ls-base);
+        color: rgba(255,255,255,.88);
+        max-width: 34ch;
+        }
+
+    /* кнопки: одна под другой, но не во всю ширину на десктопе */
+    .footer-actions{
+        margin-top: var(--sp-md);
+        display: grid;
+        gap: var(--sp-sm);
+        max-width: 14rem;
+        }
+
+    .footer-actions .btn{
+        width: 100%; /* чтобы кнопки не расстягивались внутри*/
+    }
+.footer-col--main .footer-actions{
+    margin-top: var(--sp-lg); /* прижимает блок кнопок к низу колонки */
+}
+
+    /* КНОПКИ ФУТЕРА — цвета и “шторка” */
+.btn-footer-light{
+  background: var(--c-bg);
+  /* color: var(--c-accent); */
+  border: 1px solid rgba(255,255,255,.35);
+}
+.btn-footer-light::after{
+  background: var(--c-title);
+}
+.btn-footer-light:hover{
+  color: var(--c-bg);
+}
+
+.btn-footer-accent{
+  background: var(--c-title);
+  /* color: var(--c-bg); */
+  border: 1px solid rgba(255,255,255,.35);
+}
+.btn-footer-accent::after{
+  background: var(--c-bg);
+}
+.btn-footer-accent:hover{
+  color: var(--c-title);
+}
+
+/* ФИКС: принудительно задаём цвет текста на hover именно в футере */
+.footer .btn-footer-light:hover,
+.footer .btn-footer-light:focus-visible{
+  color: var(--c-bg) !important;
+}
+
+.footer .btn-footer-accent:hover,
+.footer .btn-footer-accent:focus-visible{
+  color: var(--c-title) !important;
+}
+
+        /* заголовки колонок */
+    .footer-col-title{
+        margin-bottom: var(--sp-sm);
+        font-family: var(--font-main);
+        font-weight: 500;
+        font-size: var(--fs-body);
+        letter-spacing: var(--ls-base);
+        text-transform: uppercase;
+        color: var(--c-accent);
+        }
+
+        /* текст в колонке */
+    .footer-text{
+        margin: 0 0 var(--sp-sm);
+        font-size: var(--fs-body);
+        font-weight: 300;
+        line-height: var(--lh-base);
+        letter-spacing: var(--ls-base);
+        color: rgba(255,255,255,.88);
+        }
+
+        /* ссылки с анимацией (оставляем твою “классную”) */
+    .footer-link{
+        display: block;
+        font-weight: 300;
+        text-decoration: none;
+        margin-bottom: var(--sp-min);
+        color: rgba(255,255,255,.85);
+        position: relative;
+        padding-left: calc(var(--sp-xs) + 10px);
+        transition: transform .35s cubic-bezier(0.16, 1, 0.3, 1), opacity .35s ease;
+        }
+    .footer-link::before{
+        content:"";
+        position:absolute;
+        left: 0;
+        top: 0.75em;
+        width: 6px;
+        height: 6px;
+        background: var(--c-bg);
+        opacity: .35;
+        transform: translateY(-50%) rotate(45deg);
+        transition: transform .35s cubic-bezier(0.16, 1, 0.3, 1), opacity .35s ease, background .35s ease;
+    }
+@media (hover:hover) and (pointer:fine){
+    .footer-link:hover{
+        transform: translateX(var(--sp-xs));
+        opacity: 1;
+        }
+    .footer-link:hover::before{
+        opacity: 1;
+        background: var(--c-accent);
+        transform: translateY(-50%) rotate(135deg);
+        }
+    }
+
+        /* watermark OKNOK — по центру */
+    .footer-watermark{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: calc(80px + 4px); /* 80px = высота footer-bottom */
+        width: 100%;
+        text-align: center;
+        font-weight: 700;
+        letter-spacing: -0.06em;
+        font-size: clamp(6rem, 18vw, 14rem);
+        line-height: .85;
+        text-transform: uppercase;
+        color: rgba(255,255,255,.10);
+        pointer-events: none;
+        user-select: none;
+        z-index: 0;
+        }
+
+        /* нижняя полоска */
+    .footer-bottom{
+        position: relative;
+        z-index: 1;
+        border-top: 1px solid rgba(255,255,255,.18);
+        height: 80px;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap: var(--sp-md);
+        /* padding: 0 5%;   не md, а как у контейнера */ 
+        font-family: var(--font-tech);
+        font-size: var(--fs-label);
+        letter-spacing: var(--ls-label);
+        font-weight: 300;
+        /* text-transform: uppercase; */
+        color: rgba(255,255,255,.7);
+        }
+    .footer-bottom-link{
+        color: var(--c-bg);
+        /* color: rgba(255,255,255,.85); */
+        text-decoration: none;
+        border-bottom: 1px solid transparent; 
+        }
+    .footer-bottom-link:hover{
+        border-bottom-color: rgba(255,255,255,.65);
+        }
+
+    /* мобилка */
+@media (max-width: 900px){
+    .footer .container{ 
+        padding: 0 5%; 
+        margin-top: var(--sp-md);
+    }
+
+    .footer-grid{ grid-template-columns: 1fr; }
+    .footer-col{
+        padding: var(--sp-md) 0;
+        border-left: 0 !important;
+        border-top: 1px solid rgba(255,255,255,.18);
+        }
+    .footer-col:first-child{ border-top: 0; }
+
+    .footer-actions{ max-width: none; }
+    .footer-actions .btn{ width: 100%; }
+
+    .footer-bottom{
+            height: auto;
+            padding: var(--sp-md) 0;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: var(--sp-sm);
+        }
+
+    .footer-watermark{
+        /* position: absolute; */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;              /* 120 % чтобы чуть выходил за края */
+        font-size: clamp(8rem, 22vw, 10rem);
+        bottom: 4px; /* calc(80px + 4px); */
+        text-align: center;
+        }
+    }
+
+        /* --- АДАПТИВНОСТЬ (Для телефонов) --- */
+        /* Ставим 900px — это точка, когда исчезает меню и появляется бургер */
+        @media (max-width: 900px) {
+            .nav-desktop,
+            .header-cta { display: none !important; } /* Скрываем меню и кнопку в шапке */
+            .burger { display: flex; } /* Показываем гамбургер */
+            /* .hero h1 { font-size: 2.5rem; } - пока удалили на проверку*/
+            .footer-grid { grid-template-columns: 1fr; } /* Футер в одну колонку */
+            .card { min-height: auto; } /* Карточки не фиксируем по высоте */
+        }
+        
+        /* Анимация появления (Reveal) 
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        } */
+         /*поменяли, но микро-дерг не ушел пока */
+        .reveal{
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            will-change: opacity, transform;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body id="top">
+
+    <header class="header">  
+        <a href="https://oknok.ru" class="logo">OKNOK.</a>
+
+        <nav class="nav-desktop">
+            <a href="#audience">Для кого</a>
+            <a href="#approach">Подход</a>
+            <a href="#directions">Направления</a>
+            <a href="#turnkey">Под ключ</a>
+            <a href="#process">Процесс</a>
+            <a href="#contacts">Контакты</a>
+        </nav>
+                     
+        <a href="#contacts" class="btn btn-primary btn-sm header-cta">Связаться</a>      
+
+        <button
+            class="burger"
+            id="burgerBtn"
+            type="button"
+            aria-label="Открыть меню"
+            aria-controls="mobileMenu"
+            aria-expanded="false"
+            >
+            <span></span><span></span><span></span>
+</button>
+
+    </header>
+
+    <div id="mobileMenu" class="mobile-menu">
+        <a href="#audience" onclick="toggleMenu()">Для кого</a>
+        <a href="#approach" onclick="toggleMenu()">Подход</a>
+        <a href="#directions" onclick="toggleMenu()">Направления</a>
+        <a href="#turnkey" onclick="toggleMenu()">Под ключ</a>
+        <a href="#process" onclick="toggleMenu()">Процесс</a>
+        <a href="#contacts" onclick="toggleMenu()">Контакты</a>
+    </div>
+
+    <main>
+        
+        <section class="hero-new container">
+    <div class="hero-grid">
+        
+        <div class="hero-text-panel reveal">
+            <div class="decorative-line"></div>
+            
+            <p class="hero-tag">OKNOK / WINDOW & FACADE SYSTEMS</p>
+
+            <h1 class="hero-title">
+                Оконно-фасадные решения под задачи вашего объекта
+            </h1>
+
+            <p class="hero-lead">
+                Подбираем, проектируем и&#8239;реализуем оконные и&#8239;фасадные системы для частных домов, жилых и&#8239;коммерческих объектов
+            </p>           
+
+            <div class="hero-btns">
+            <!--    <a href="#contacts" class="btn-primary">Заказать расчёт</a> -->
+                <a href="#contacts" class="btn btn-primary">Обсудить задачу</a>
+                <span class="hero-motto">без терминов • по делу • по графику</span>
+            </div>
+
+        </div>
+
+        <div class="hero-image-panel reveal">
+            <div class="img-overlay-top"></div>
+            <div class="img-overlay-bottom"></div>
+
+            <img src="https://i.postimg.cc/B6D8PkNZ/hero-img.webp" 
+                 alt="Фасад с панорамным остеклением"
+                 class="hero-img">
+
+            <!-- <figcaption class="hero-caption">
+                FAÇADE GLAZING / SAMPLE
+            </figcaption> -->
+        </div>
+
+    </div>
+</section>
+
+    <!-- БЛОК 2 Кому это подходит -->
+            <section class="section container audience" id="audience">
+        <header class="section-head reveal">
+            <p class="label">/ ДЛЯ КОГО</p>
+            <h2>Работаем с разными объектами —<br> подход остаётся один</h2>
+            <p class="section-subtitle">Понимаем задачи частных заказчиков и&#8239;требования крупных проектов</p>
+        </header>
+
+        <div class="audience-grid">
+            <article class="audience-card reveal">
+            <div class="audience-coord audience-coord--tr">01.REF-ARCH</div>
+            <div class="label">/КОМФОРТ + АРХИТЕКТУРА</div>
+            <h3 class="audience-title">Частные дома и&#8239;коттеджи</h3>
+            <ul class="audience-features">
+                <li class="audience-feature">Панорамное остекление, раздвижные и&#8239;складные системы</li>
+                <li class="audience-feature">Комфорт, тепло и&#8239;внешний вид без&#8239;лишних сложностей</li>
+                <li class="audience-feature">Понятно объясняем и&#8239;берём на&#8239;себя весь цикл</li>
+            </ul>
+            <div class="audience-coord audience-coord--bl">X-44.2 // Y-10.8</div>
+            </article>
+
+            <article class="audience-card reveal">
+            <div class="audience-coord audience-coord--tr">02.REF-VOL</div>
+            <div class="label">/ОБЪЁМЫ + СРОКИ</div>
+            <h3 class="audience-title">Жилые комплексы и&#8239;застройщики</h3>
+            <ul class="audience-features">
+                <li class="audience-feature">Соответствие проекту, управляемая поставка и&#8239;монтаж</li>
+                <li class="audience-feature">Стабильное качество и&#8239;единые стандарты по&#8239;объекту</li>
+                <li class="audience-feature">Понятная логистика и&#8239;управляемый результат</li>
+            </ul>
+            <div class="audience-coord audience-coord--bl">X-44.2 // Y-22.1</div>
+            </article>
+
+            <article class="audience-card reveal">
+            <div class="audience-coord audience-coord--tr">03.REF-FAC</div>
+            <div class="label">/ФАСАДЫ + ВИТРАЖИ</div>
+            <h3 class="audience-title">Коммерческие объекты</h3>
+            <ul class="audience-features">
+                <li class="audience-feature">Фасады, витражи, входные группы</li>
+                <li class="audience-feature">Работа в рамках проекта и&#8239;действующих объектов</li>
+                <li class="audience-feature">Аккуратность на площадке и&#8239;предсказуемый результат</li>
+            </ul>
+            <div class="audience-coord audience-coord--bl">X-44.2 // Y-34.9</div>
+            </article>
+        </div>
+        </section>
+
+    <!-- БЛОК 3 Наш подход -->
+    <section class="section container approach" id="approach">
+        <div class="approach-grid">
+            <div class="approach-left">
+                <header class="section-head approach-head reveal">
+                <p class="label">/ НАШ ПОДХОД</p>
+                <h2>Подход важнее,<br> чем просто поставка</h2>
+                <p class="section-subtitle">Мы не «продаём окна». Мы собираем рабочее решение под ваш объект — чтобы&#8239;оно 
+                    выглядело достойно, служило долго и&#8239;не&#8239;приносило головной боли после монтажа
+                </p>
+                </header>
+
+        <!-- CTA: на десктопе слева под подзаголовком, на мобилке — в конце блока -->
+            <div class="approach-cta reveal">
+                <a href="#contacts" class="btn btn-primary">Обсудить проект</a>
+                </div>
+            </div>
+
+            <ul class="approach-list">
+            <li class="approach-item reveal">
+                <span class="approach-marker">[ 01 ]</span>
+                <p class="approach-text">Подбираем системы под реальные условия эксплуатации</p>
+            </li>
+
+            <li class="approach-item reveal">
+                <span class="approach-marker">[ 02 ]</span>
+                <p class="approach-text">Работаем с проверенными производителями и&#8239;подсистемами</p>
+            </li>
+
+            <li class="approach-item reveal">
+                <span class="approach-marker">[ 03 ]</span>
+                <p class="approach-text">Учитываем архитектуру, нагрузки, климат и&#8239;сроки</p>
+            </li>
+
+            <li class="approach-item reveal">
+                <span class="approach-marker">[ 04 ]</span>
+                <p class="approach-text">Сопровождаем проект от&#8239;идеи до&#8239;результата</p>
+            </li>
+
+            <li class="approach-item reveal">
+                <span class="approach-marker">[ 05 ]</span>
+                <p class="approach-text">Несём ответственность за итог, а&#8239;не за&#8239;отдельный этап</p>
+            </li>
+            
+            </ul>            
+        </div>
+        </section>
+
+        <!-- БЛОК 4 Что мы делаем -->
+        <section class="section container directions" id="directions">
+        <header class="section-head reveal">
+            <p class="label">/ ЧТО МЫ ДЕЛАЕМ</p>
+            <h2>Ключевые направления</h2>
+            <p class="section-subtitle">
+            Закрываем основные задачи по остеклению и&#8239;фасадам — от&#8239;частных домов до&#8239;крупных объектов.
+            Работаем как с&#8239;типовыми, так и&#8239;с&#8239;нестандартными решениями — под&#8239;задачи конкретного объекта
+            </p>
+        </header>
+
+        <div class="directions-grid">
+            <!-- Card 1 -->
+            <article class="direction-card reveal" role="button" tabindex="0">
+            <div class="direction-media">
+                <img
+                src="https://i.postimg.cc/tJvwWS2L/direction_img_2.webp"
+                alt="Алюминиевые оконные системы"
+                loading="lazy"
+                />
+            </div>
+
+            <div class="direction-content">
+                <p class="label">ОКНА</p>
+                <h3 class="direction-title">Алюминиевые<br>оконные системы</h3>
+                <p class="direction-desc">Баланс прочности, стиля<br>и долговечности</p>
+            </div>
+        </article>
+
+            <!-- Card 2 -->
+            <article class="direction-card reveal" role="button" tabindex="0">
+            <div class="direction-media">
+                <img
+                src="https://i.postimg.cc/NFCSmJp3/direction_img_3.webp"
+                alt="Раздвижные и складные конструкции"
+                loading="lazy"
+                />
+            </div>
+
+            <div class="direction-content">
+                <p class="label">ПАНОРАМЫ</p>
+                <h3 class="direction-title">Раздвижные<br>и складные конструкции</h3>
+                <p class="direction-desc">С комфортом использования<br>и аккуратной геометрией</p>
+            </div>
+        </article>
+
+            <!-- Card 3 -->
+            <article class="direction-card reveal" role="button" tabindex="0">
+            <div class="direction-media">
+                <img
+                src="https://i.postimg.cc/prc4zGq4/direction_img_4.webp"
+                alt="Витражное и фасадное остекление"
+                loading="lazy"
+                />
+            </div>
+
+            <div class="direction-content">
+                <p class="label">ФАСАДЫ</p>
+                <h3 class="direction-title">Витражное<br>и фасадное остекление</h3>
+                <p class="direction-desc">Сложные формы<br>при полной надежности</p>
+            </div>
+        </article>
+
+            <!-- Card 4 -->
+            <article class="direction-card reveal" role="button" tabindex="0">
+            <div class="direction-media">
+                <img
+                src="https://i.postimg.cc/mkpJCX8q/direction_img_5.webp"
+                alt="Вентилируемые фасады"
+                loading="lazy"
+                />
+            </div>
+
+            <div class="direction-content">
+                <p class="label">ПОДСИСТЕМЫ</p>
+                <h3 class="direction-title">Вентилируемые<br>фасады</h3>
+                <p class="direction-desc">Высокая устойчивость<br>и простая эксплуатация</p>
+            </div>
+            </article>
+        </div>
+        </section>
+
+        <!-- БЛОК 5 ПОД КЛЮЧ (turnkey) -->
+        <section id="turnkey" class="section container turnkey">
+            <header class="section-head reveal">
+                <p class="label">/ ПОД КЛЮЧ</p>
+                <h2>Один партнёр на все этапы проекта</h2>
+                <p class="section-subtitle">Убираем разрыв между проектированием и&#8239;стройкой. 
+                Берём на&#8239;себя все процессы, чтобы вы&#8239;получили работающее решение, а&#8239;не&#8239;набор профилей
+                </p>           
+            </header>
+
+            <div class="turnkey-grid reveal">
+                <!-- Card 1 -->
+                <div class="card" onclick="toggleCard(this)">
+                    <span class="tech-tag">/ ИНЖЕНЕРИЯ_01</span>
+                    <h3 class="card__title">Проектирование и&#8239;подбор систем</h3>
+                    <p class="card__desc">Расчёты, узлы, спецификации, подбор систем</p>
+                    <div class="card__details">
+                        <p>Рассчитываем нагрузки, подбираем материалы и&#8239;узлы под конкретную архитектуру и&#8239;климат. 
+                            Готовим полную рабочую документацию: от&#8239;чертежей КМД до&#8239;спецификаций. 
+                            Исключаем избыточные траты и&#8239;рискованные решения еще на&#8239;этапе идеи
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card" onclick="toggleCard(this)">
+                    <span class="tech-tag">/ ЛОГИСТИКА_02</span>
+                    <h3 class="card__title">Комплектация и&#8239;прямые поставки</h3>
+                    <p class="card__desc">Поставка, комплектация, контроль сроков</p>
+                    <div class="card__details">
+                        <p>Организуем заказ компонентов напрямую у&#8239;заводов, включая таможенное оформление. 
+                            Берем на&#8239;себя доставку, разгрузку и&#8239;ответственное хранение на&#8239;объекте. 
+                            Синхронизируем логистику с&#8239;графиком работ, 
+                            чтобы исключить простои и&#8239;неразбериху
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card" onclick="toggleCard(this)">
+                    <span class="tech-tag">/ РЕАЛИЗАЦИЯ_03</span>
+                    <h3 class="card__title">Профессиональный монтаж</h3>
+                    <p class="card__desc">Собственные бригады, технология, контроль качества</p>
+                    <div class="card__details">
+                        <p>Монтаж выполняют собственные бригады с&#8239;допусками к&#8239;высотным работам. 
+                            Устанавливаем всё: от&#8239;панорамных дверей до&#8239;сложных вентфасадов, откосов и&#8239;парапетов. 
+                            Строго соблюдаем технологию узлов и&#8239;проектные решения под контролем качества
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="card" onclick="toggleCard(this)">
+                    <span class="tech-tag">/ СЕРВИС_04</span>
+                    <h3 class="card__title">Гарантийное обслуживание</h3>
+                    <p class="card__desc">Гарантия и&#8239;поддержка после сдачи объекта</p>
+                    <div class="card__details">
+                        <p>Остаемся на связи и&#8239;после сдачи объекта. Обеспечиваем гарантийную и&#8239;постгарантийную поддержку всех систем. 
+                            Вам не&#8239;нужно искать новых подрядчиков или объяснять контекст проекта — мы&#8239;знаем каждый шов в&#8239;вашем здании
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- БЛОК 7 Процесс -->
+    <section id="process" class="section container process">
+    <header class="section-head reveal">           
+        <p class="label">/ КАК МЫ РАБОТАЕМ</p>
+        <h2>Путь проекта: от&#8239;идеи до&#8239;реализации</h2>
+        <p class="section-subtitle">
+          Мы выстроили работу так, чтобы вы&#8239;понимали, что происходит на&#8239;каждом 
+          этапе — и&#8239;могли спокойно заниматься своим проектом  
+        </p>
+    </header>
+
+  <div class="process-grid">
+    <div class="process-item reveal">
+        <span class="process-tag">/ ВСТРЕЧА</span>
+            <div class="process-header">
+                <span class="process-number">01.</span>
+                    <h3 class="process-title">Обсуждение задачи</h3>
+            </div>
+        <p class="process-description">Разбираем объект, сроки, бюджет и&#8239;особенности площадки.
+        Фиксируем требования — без&#8239;«потом обсудим»
+        </p>
+    </div>
+
+    <div class="process-item reveal">
+        <span class="process-tag">/ ОПТИМИЗАЦИЯ</span>
+            <div class="process-header">
+                <span class="process-number">02.</span>
+                    <h3 class="process-title">Подбор решения</h3>
+            </div>
+        <p class="process-description">Предлагаем систему под архитектуру, нагрузки и&#8239;условия эксплуатации.
+        Формируем прозрачное предложение без&#8239;лишних позиций
+        </p>
+    </div>
+
+    <div class="process-item reveal">
+        <span class="process-tag">/ ЧЕРТЕЖ</span>
+            <div class="process-header">
+                <span class="process-number">03.</span>
+                    <h3 class="process-title">Инженерный проект</h3>
+            </div>
+       <p class="process-description">Готовим рабочие чертежи, узлы и&#8239;спецификации.
+        Согласовываем решения и&#8239;увязываем их с&#8239;проектом объекта
+        </p>
+    </div>
+
+    <div class="process-item reveal">
+        <span class="process-tag">/ РЕСУРСЫ</span>
+            <div class="process-header">
+                <span class="process-number">04.</span>
+                    <h3 class="process-title">Поставка материалов</h3>
+            </div>
+        <p class="process-description">Организуем заказ и&#8239;логистику систем и&#8239;комплектующих.
+        Контролируем сроки и&#8239;комплектацию
+        </p>
+    </div>
+
+    <div class="process-item reveal">
+        <span class="process-tag">/ ТОЧНОСТЬ</span>
+            <div class="process-header">
+                <span class="process-number">05.</span>
+                    <h3 class="process-title">Монтажный цикл</h3>
+            </div>
+        <p class="process-description">Работаем собственными бригадами по&#8239;утверждённой технологии.
+        Проводим контроль качества на&#8239;каждом этапе
+        </p>
+    </div>
+
+    <div class="process-item reveal">
+        <span class="process-tag">/ КОНТРОЛЬ</span>
+            <div class="process-header">
+                <span class="process-number">06.</span>
+                    <h3 class="process-title">Сдача и сопровождение</h3>
+            </div>
+        <p class="process-description">Передаём объект, оформляем гарантию.
+        Остаёмся на связи — если понадобится регулировка или&#8239;сервис
+        </p>
+    </div>
+</div>
+    <!-- Финальный статус процесса -->
+        <div class="process-status">
+            // MISSION_COMPLETED: 100% HERMETIC
+        </div>
+    </section>
+
+    <!-- БЛОК 8 - ПАРТНЁРЫ -->
+        <section id="partners" class="section container partners">
+    <div class="partners-grid">
+    <!-- ЛЕВО: шапка -->
+    <header class="section-head reveal partners-head">
+        <p class="label">/ ПАРТНЁРЫ</p>
+            <h2>Опираемся на&nbsp;мировые стандарты качества</h2>
+                <p class="section-subtitle">
+                Мы не экспериментируем на ваших объектах. В&nbsp;основе наших решений — системы от&nbsp;лидеров 
+                рынка, проверенные десятилетиями эксплуатации
+            </p>
+    </header>
+
+    <!-- ПРАВО: пункты 2×2 -->
+    <div class="partners-bullets">
+        <div class="partners-bullet reveal">
+            <span class="partners-bullet-num">01 / Профильный стандарт</span>
+        <p class="partners-bullet-text">Остекление на базе систем Schuco и&#8239;Alutech</p>
+        </div>
+
+        <div class="partners-bullet reveal">
+            <span class="partners-bullet-num">02 / Системная надежность</span>
+        <p class="partners-bullet-text">Фасадные подсистемы Hilti и U-KON</p>
+        </div>
+
+        <div class="partners-bullet reveal">
+            <span class="partners-bullet-num">03 / Масштаб</span>
+        <p class="partners-bullet-text">Любой масштаб от&#8239;частных резиденций до&#8239;бизнес-центров</p>
+        </div>
+
+        <div class="partners-bullet reveal">
+            <span class="partners-bullet-num">04 / Общий язык</span>
+        <p class="partners-bullet-text">Профессиональное понимание требований ГИПов и&#8239;девелоперов</p>
+        </div>
+    </div>
+</div>
+
+    <div class="partners-divider"></div>
+<div class="partners-marquee" aria-label="Партнёры и системы">
+    <div class="partners-marquee-track">
+        <!-- Набор 1 -->
+        <div class="partners-logo">SCHUCO</div>
+        <div class="partners-logo">ALUTECH</div>
+        <div class="partners-logo">HILTI</div>
+        <div class="partners-logo">U-KON</div>
+        <div class="partners-logo">REYNAERS</div>
+        <div class="partners-logo">PILKINGTON</div>
+
+        <!-- Набор 2 (дубликат для бесшовной прокрутки) -->
+        <div class="partners-logo">SCHUCO</div>
+        <div class="partners-logo">ALUTECH</div>
+        <div class="partners-logo">HILTI</div>
+        <div class="partners-logo">U-KON</div>
+        <div class="partners-logo">REYNAERS</div>
+        <div class="partners-logo">PILKINGTON</div>
+    </div>
+</div>
+    </section>
+
+    </main>
+
+    <!-- ФУТЕР -->
+    <footer id="contacts" class="footer">
+    <div class="container">
+
+        <!-- водяной знак -->
+        <div class="footer-watermark" aria-hidden="true">OKNOK</div>
+
+        <div class="footer-grid">
+        <!-- Колонка 1 -->
+        <div class="footer-col footer-col--main">
+            <h1 class="footer-brand">
+            <a href="#top" aria-label="Наверх">OKNOK.</a>
+            </h1>
+            <p class="footer-title">Инженерные решения<br>для современной архитектуры</p>
+
+            <div class="footer-actions">
+            <a class="btn btn-footer-light" href="https://t.me/oknokru" target="_blank" rel="noopener"> 
+                Обсудить задачу
+            </a>
+            <a class="btn btn-footer-accent" href="tel:+79284471916">
+                Связаться
+            </a>
+            </div>
+        </div>
+
+        <!-- Колонка 2 -->
+<div class="footer-col">
+  <p class="label footer-col-title">РЕКВИЗИТЫ</p>
+
+  <p class="footer-text">
+    ИП Старостенко О.В.<br>
+    ИНН 380400275560<br>
+    ОГРН 317470400006544<br>
+    БАНК АО "Тинькофф Банк"<br>
+    БИК 044525974<br>
+    Р/С 40802810700003201387
+  </p>
+
+  <div style="height: var(--sp-md);"></div>
+
+  <p class="label footer-col-title">КОНТАКТЫ</p>
+
+  <p class="footer-text">
+    Сочи, ул. Горького, 75<br>
+    БЦ Сочи, оф. 606
+  </p>
+
+  <a class="footer-link" href="tel:+79284471916">Тел.: +7 (928) 447 19 16</a>
+  <a class="footer-link" href="mailto:oknok.ru@ya.ru">E-mail: oknok.ru@ya.ru</a>
+</div>
+
+
+        <!-- Колонка 3 -->
+        <div class="footer-col">
+            <p class="label footer-col-title">НАВИГАЦИЯ</p>
+
+            <a class="footer-link" href="#directions">Направления</a>
+            <a class="footer-link" href="#approach">Наш подход</a>
+            <a class="footer-link" href="#turnkey">Под ключ</a>
+            <a class="footer-link" href="#process">Процесс</a>
+            <a class="footer-link" href="#partners">Партнёры</a>
+
+            <!-- блок без заголовка -->
+        <div style="margin-top: var(--sp-lg);"></div>
+
+        <a class="footer-link" href="#contacts">Политика конфиденциальности</a>
+        <a class="footer-link" href="#contacts">Согласие на обработку персональных данных</a>
+        </div>
+    </div>
+
+        <!-- нижняя полоска -->
+        <div class="footer-bottom">
+        <div class="footer-bottom-left">© 2026 OKNOK</div>
+
+        <div class="footer-bottom-right">
+            Build by:
+            <a class="footer-bottom-link" href="https://t.me/mashapromtai" target="_blank" rel="noopener">
+            Masha_DesignLab
+            </a>
+        </div>
+        </div>
+    </div>
+    </footer>
+
+
+    <script>
+        // 1) ЛОГИКА МОБИЛЬНОГО МЕНЮ (аккуратно и стабильно)
+        const menu = document.getElementById('mobileMenu');
+        const burger = document.getElementById('burgerBtn');
+
+        function setMenuState(isOpen) {
+        menu.classList.toggle('open', isOpen);
+        burger.classList.toggle('is-open', isOpen);
+
+        burger.setAttribute('aria-expanded', String(isOpen));
+        menu.setAttribute('aria-hidden', String(!isOpen));
+
+        document.body.classList.toggle('menu-open', isOpen);
+        }
+
+        // клик по бургеру
+        burger.addEventListener('click', () => {
+        const isOpen = !menu.classList.contains('open');
+        setMenuState(isOpen);
+        });
+
+        // закрытие по ESC
+        document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && menu.classList.contains('open')) {
+            setMenuState(false);
+        }
+        });
+
+        // закрытие по клику на пункт меню
+        menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => setMenuState(false));
+        });
+
+        // 2. АККОРДЕОН (Твой код без изменений)
+        function toggleCard(element) {
+            // Если хочешь, чтобы при открытии одной закрывались другие - раскомментируй строки ниже:
+                document.querySelectorAll('.card').forEach(el => {
+                if (el !== element) el.classList.remove('active');
+            });
+                element.classList.toggle('active');
+        }
+
+        // 3. АНИМАЦИЯ ПРИ СКРОЛЛЕ (Reveal)
+        const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+      observer.unobserve(entry.target); // чтобы не гонять его снова и снова
+    }
+  });
+}, {
+  threshold: 0.1,
+  rootMargin: "0px 0px -10% 0px" // чуть заранее “включаем” анимацию
+});
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ПАРТНЁРЫ marquee: пауза при наведении (для десктопа)
+        const partnersTrack = document.querySelector('.partners-marquee-track');
+        if (partnersTrack) {
+        partnersTrack.addEventListener('mouseenter', () => {
+            partnersTrack.style.animationPlayState = 'paused';
+        });
+        partnersTrack.addEventListener('mouseleave', () => {
+            partnersTrack.style.animationPlayState = 'running';
+        });
+        }
+    </script>
+</body>
+</html>
