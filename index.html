@@ -23,18 +23,33 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
+*, *::before, *::after {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+*:focus-visible {
+  outline: 2px solid #64748B;
+  outline-offset: 3px; /* Делаем отступ, чтобы рамка не слипалась с краем кнопки */
+  border-radius: inherit; /* Повторяем скругление угла родителя */
+}
+
+::selection {
+  background: var(--c-accent); /* цвет выделения */
+  color: var(--c-bg);      /* цвет текста */
+}
+
         /* ========================================= */
         /* 1. ДИЗАЙН-СИСТЕМА                         */
         /* ========================================= */
         :root {
             /* --- ЦВЕТА --- */
-            --c-bg: #f4f3f1;            /* Основной фон ("бумажный") */     
+            --c-bg: #f4f3f1;                
             --c-text: #2b3749;          /* Основной текст (был ink) */   
             --c-title: #2e3b4e;         /* Заголовки (был ink-strong) */ 
             --c-text-muted: #64748B;    /* Второстепенный текст (был --c-ink-light) */
             --c-line: rgba(0, 0, 0, 0.1); /* Линии и обводки */           
             --c-text-soft: rgba(46, 59, 78, 0.08); /* Light blue tint for tags */
-            --c-accent: #ac5039;   /* Акцентный цвет (кнопки, ссылки) */                      
+            --c-accent: #ac5039;                       
 
             /* --- РАЗМЕРЫ --- */
             --container-width: 1200px; /* Ширина контента */
@@ -2177,7 +2192,7 @@
             <p class="footer-title">Инженерные решения<br>для современной архитектуры</p>
 
             <div class="footer-actions">
-            <a class="btn btn-footer-light" href="https://t.me/oknokru" target="_blank" rel="noopener"> 
+            <a class="btn btn-footer-light" href="https://wa.me/79284471916?text=Добрый день! Хочу уточнить информацию по заказу окон." target="_blank" rel="noopener"> 
                 Обсудить задачу
             </a>
             <a class="btn btn-footer-accent" href="tel:+79284471916">
@@ -2204,8 +2219,8 @@
   <p class="label footer-col-title">КОНТАКТЫ</p>
 
   <p class="footer-text">
-    Сочи, ул. Горького, 75<br>
-    БЦ Сочи, оф. 606
+    г. Сочи, ул. Горького, 75<br>
+    Бизнес-центр «Сочи», оф. 606
   </p>
 
   <a class="footer-link" href="tel:+79284471916">Тел.: +7 (928) 447 19 16</a>
